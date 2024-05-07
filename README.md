@@ -2,20 +2,20 @@
 
 Java Project @JetBrains Academy
 
-A program focusing on analyzing and categorizing numbers based on various mathematical properties. allows users to explore a wide range of unique and interesting properties of numbers, offering insights into their characteristics.
+This program focuses on analyzing and categorizing numbers based on various mathematical properties. It allows users to explore a wide range of unique and interesting characteristics of numbers, offering insights into their behavior.
 
-The application can identify the following properties of a given number:
+The application can identify the following properties in a given number:
 
 - Even Numbers: Divisible by 2.
 - Odd Numbers: Not divisible by 2.
 - Buzz Numbers: Divisible by 7 or ending in 7.
-- Duck Numbers: Contain at least one '0' in their decimal representation.
-- Palindromic Numbers: The number is the same when read forwards and backwards.
+- Duck Numbers: Contains at least one '0' in its decimal representation.
+- Palindromic Numbers: Reads the same forwards and backwards.
 - Gapful Numbers: Divisible by the number formed by its first and last digits.
 - Spy Numbers: The sum of its digits equals the product of its digits.
-- Sunny Numbers: The number n such that n+1 is a perfect square.
+- Sunny Numbers: The number 𝑛 such that 𝑛 + 1 is a perfect square.
 - Square Numbers: A number that is the square of an integer.
-- Jumping Numbers: Digits of the number differ by 1 when compared with adjacent digits.
+- Jumping Numbers: Each pair of adjacent digits differs by 1.
 - Happy Numbers: A number that eventually equals 1 when replaced by the sum of the squares of its digits repeatedly.
 - Sad Numbers: A number that does not converge to 1 using the same process as Happy Numbers.
 
@@ -52,26 +52,64 @@ Supported requests:
 - separate the parameters with one space;
 - enter 0 to exit.
 
-Enter a request: > 51 5 even sunny happy -duck 
+Enter a request: > 21012321012                     
 
-       3,968 is even, happy, sunny
-      15,624 is buzz, even, gapful, happy, sunny
-      34,224 is even, happy, sunny
-      75,624 is even, happy, sunny
-     117,648 is even, gapful, happy, sunny
-
-
+Properties of 21,012,321,012
+        buzz: false
+        duck: true
+        even: true
+      gapful: false
+       happy: false
+     jumping: true
+         odd: false
+ palindromic: true
+         sad: true
+         spy: false
+      square: false
+       sunny: false
 ```
-
-
+Get a list of numbers with their properties
 ```
+Enter a request: > 21012321012 2
 
-Enter a request: > 879654 5 sad
+21,012,321,012 is duck, even, jumping, palindromic, sad
+21,012,321,013 is duck, odd, sad
+```
+Find numbers with specific property
+```
+Enter a request: > 21012321012 2 spy
 
-     879,654 is even, sad
-     879,657 is buzz, gapful, odd, sad
-     879,659 is odd, sad
-     879,660 is duck, even, sad
-     879,661 is odd, sad
+21,111,111,124 is even, happy, spy
+21,111,111,142 is even, gapful, happy, spy
+```
+Find numbers with specific properties
+```
+Enter a request: > 21012321012 4 sunny odd        
 
+21,012,821,763 is duck, odd, sad, sunny
+21,013,401,599 is duck, happy, odd, sunny
+21,013,981,443 is buzz, duck, odd, sad, sunny
+21,014,561,295 is buzz, duck, odd, sad, sunny
+```
+Find numbers excluding specific properties
+```
+Enter a request: > 21012321012 4 sunny odd -sad
+
+21,013,401,599 is duck, happy, odd, sunny
+21,015,141,155 is duck, happy, odd, sunny
+21,019,200,399 is duck, happy, odd, sunny
+21,022,100,099 is buzz, duck, happy, odd, sunny
+```
+Error Handling                               
+```                                                                  
+Enter a request: > 21012321012 4 square sunny odd                    
+                                                                     
+The request contains mutually exclusive properties: sunny and square 
+There are no numbers with these properties.                          
+```                                                                  
+Exit the program
+```
+Enter a request: > 0
+
+Goodbye!
 ```
